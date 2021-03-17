@@ -66,7 +66,7 @@ void CI_enableGetDataChannel(void){
 	HAL_UART_Receive_IT(&ComputerChannel,&getTmpCH,1);
 }
 
-static int8_t tmpArr[12];
+static uint8_t tmpArr[12];
 /**
  * @brief get to Motor Driver 1 values
  * @return none
@@ -92,6 +92,8 @@ void CI_getDataChannel_IT(UART_HandleTypeDef *callBackHandle) {
 						getVals.drive_speed=(tmpArr[8] & 0xFF) | (tmpArr[9] << 8) | (tmpArr[10] << 16) | (tmpArr[11] << 24);
 
 					}
+					//4774391
+					//4774648
 
 				}
 				HAL_UART_Receive_IT(callBackHandle, &getTmpCH, 1);
